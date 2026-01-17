@@ -9,7 +9,7 @@ import Confirmation from "./confirmation";
 import Header from "./header";
 import FAQ from "./FAQ";
 import Favourites from "./favourites";
-import "./app.css";
+import "./index.css";
 
 function App() {
   return (
