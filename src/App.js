@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./home";
+import Diplomas from "./diplomas";
+import Diploma from "./diploma";
+import Module from "./module";
+import Register from "./register";
+import Confirmation from "./confirmation";
+import Header from "./header";
+import "./app.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home title="Welcome to RP SOI Portal" />} />
+
+        <Route path="diplomas" element={<Diplomas />}>
+          <Route path=":diplomaId" element={<Diploma />}>
+            <Route path=":moduleId" element={<Module />} />
+          </Route>
+        </Route>
+
+        <Route path="register" element={<Register />} />
+        <Route path="confirmation" element={<Confirmation />} />
+      </Routes>
+
+      <footer className="container">
+        ©2026 | RP SOI Portal
+      </footer>
     </div>
   );
 }
