@@ -22,11 +22,17 @@ export default function Header() {
         <NavLink to="/diplomas" className={getClass}>
             Diplomas
         </NavLink>
+        <NavLink to="/favourites" className={getClass}>
+            Favourites
+        </NavLink>
         <NavLink to="/register" className={getClass}>
             Register
         </NavLink>
         <NavLink to="/confirmation" className={getClass}>
             Confirmation
+        </NavLink>
+        <NavLink to="/FAQ" className={getClass}>
+            FAQ
         </NavLink>
       </nav>
     </header>

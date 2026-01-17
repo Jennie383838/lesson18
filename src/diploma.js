@@ -1,4 +1,5 @@
 import { useParams, Link, Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const modulesData = {
     R13: [
@@ -60,6 +61,25 @@ const diplomaNames = {
 function Diploma() {
   const { diplomaId } = useParams();
   const modules = modulesData[diplomaId] || [];
+  const [favourites, setFavourites] = useState([]);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("favourites")) || [];
+    setFavourites(stored);
+  }, []);
+
+  const toggleFavourite = module => {
+    let updated;
+    if (favourites.some(f => f.id === module.id)) {
+      updated = favourites.filter(f => f.id !== module.id);
+    } else {
+      updated = [...favourites, { ...module, diplomaId }];
+    }
+    setFavourites(updated);
+    localStorage.setItem("favourites", JSON.stringify(updated));
+  };
+
+  const isFavourite = module => favourites.some(f => f.id === module.id);
 
   return (
     <div className="container module-list">
@@ -68,6 +88,12 @@ function Diploma() {
       {modules.map(m => (
         <p key={m.id}>
           <Link to={m.id}>{m.name}</Link>
+          <button
+            className={isFavourite(m) ? "fav-active" : ""}
+            onClick={() => toggleFavourite(m)}
+          >
+            {isFavourite(m) ? "★ Remove" : "☆ Favourite"}
+          </button>
         </p>
       ))}
 

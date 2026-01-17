@@ -7,6 +7,8 @@ import Module from "./module";
 import Register from "./register";
 import Confirmation from "./confirmation";
 import Header from "./header";
+import FAQ from "./FAQ";
+import Favourites from "./favourites";
 import "./app.css";
 
 function App() {
@@ -22,8 +24,9 @@ function App() {
             <Route path=":moduleId" element={<Module />} />
           </Route>
         </Route>
-
+        <Route path="FAQ" element ={<FAQ />} /> 
         <Route path="register" element={<Register />} />
+        <Route path="favourites" element={<Favourites />} />
         <Route path="confirmation" element={<Confirmation />} />
       </Routes>
 

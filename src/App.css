@@ -105,3 +105,87 @@ footer {
     margin: 0 0.6rem;
   }
 }
+
+/* Search input */
+.search-input {
+  padding: 0.6rem 1rem;
+  margin: 1rem auto;
+  display: block;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #cbd5cf;
+  font-size: 1rem;
+}
+
+/*  FAQ */
+.faq-item {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+.faq-question {
+  margin-bottom: 0.3rem;
+  color: #1f6f54;
+}
+
+.faq-answer {
+  padding-left: 1rem;
+  color: #2c3e35;
+}
+
+/* ===== Module List ===== */
+.module-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* keep modules centered */
+  gap: 1rem; /* space between modules */
+  margin-top: 1rem;
+}
+
+/* Each module card */
+.module-list p {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border-left: 6px solid #1f6f54;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between; /* link on left, button on right */
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.module-list p:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+/* ===== Favourite Button ===== */
+.module-list button {
+  background-color: #1f6f54;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.module-list button:hover {
+  background-color: #155843;
+  transform: scale(1.05);
+}
+
+/* Optional: starred favourite style */
+.module-list button.fav-active {
+  background-color: #ffd700; /* gold for favourite */
+  color: #1f6f54;
+}
